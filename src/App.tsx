@@ -8,13 +8,9 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
 import { Toaster } from "react-hot-toast";
+import { Image } from "./types";
 
 export default function App() {
-  type Image = {
-    id: string;
-    url: string;
-  };
-
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [images, setImages] = useState<Image[]>([]);
@@ -86,7 +82,7 @@ export default function App() {
       )}
 
       <ImageModal
-        isOpen={selectedImage}
+        isOpen={!!selectedImage}
         selectedImage={selectedImage}
         onClose={closeModal}
       />

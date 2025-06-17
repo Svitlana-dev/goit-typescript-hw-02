@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Image } from "../types";
 
 const API_KEY = import.meta.env.VITE_UNSPLASH_KEY;
 
@@ -21,15 +22,6 @@ type ImageResult = {
   };
 };
 
-type Image = {
-  id: string;
-  url: string;
-  regular: string;
-  description: string;
-  likes: number;
-  user: string;
-};
-
 type ApiResponse = {
   results: ImageResult[];
   total_pages: number;
@@ -50,7 +42,7 @@ export const fetchImages = async (
     regular: img.urls.regular,
     description: img.alt_description || img.description || "No description",
     likes: img.likes,
-    user: img.user.name,
+    user: { name: img.user.name },
   }));
 
   return {
