@@ -1,6 +1,11 @@
-import css from './LoadMoreBtn.module.css';
+import css from "./LoadMoreBtn.module.css";
 
-export default function LoadMoreBtn({ imagesCount, onClick }) {
+type Props = {
+  imagesCount: number;
+  onClick: () => void;
+};
+
+export default function LoadMoreBtn({ imagesCount, onClick }: Props) {
   if (imagesCount === 0) {
     return null;
   }

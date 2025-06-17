@@ -1,9 +1,16 @@
-import Modal from 'react-modal';
-import css from './ImageModal.module.css';
+import Modal from "react-modal";
+import css from "./ImageModal.module.css";
+import { Image } from "../../types";
 
-Modal.setAppElement('#root');
+type Props = {
+  isOpen: boolean;
+  onClose: () => void;
+  selectedImage: Image | null;
+};
 
-export default function ImageModal({ isOpen, onClose, selectedImage }) {
+Modal.setAppElement("#root");
+
+export default function ImageModal({ isOpen, onClose, selectedImage }: Props) {
   return (
     <Modal
       isOpen={isOpen}
